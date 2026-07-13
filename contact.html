@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Contact · Verdant Verve</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f7f3ed;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #1e1e1e;
+      line-height: 1.7;
+      padding: 0 1.5rem;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      background: #fcfaf7;
+      box-shadow: 0 0 40px rgba(0,0,0,0.02);
+      padding: 0 2rem 4rem;
+      border-radius: 0 0 48px 48px;
+    }
+    h1, h2, h3, h4, .logo, .nav-links a {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+    h1 { font-size: 3.2rem; line-height: 1.15; }
+    h2 { font-size: 2.2rem; margin-top: 2.8rem; margin-bottom: 1rem; font-weight: 600; border-bottom: 2px solid #dcd0c2; padding-bottom: 0.4rem; }
+    h3 { font-size: 1.6rem; margin-top: 2rem; margin-bottom: 0.75rem; font-weight: 500; }
+    p { margin-bottom: 1.25rem; font-weight: 350; }
+    .small-text { font-size: 0.9rem; color: #5a4e44; }
+    :root {
+      --sage: #8ba888;
+      --terracotta: #b56a4b;
+      --deepolive: #3e4d3b;
+      --lightbg: #f5efe8;
+      --cardbg: #ffffff;
+      --border-light: #e5dbd2;
+    }
+    a { text-decoration: none; color: var(--deepolive); }
+    a:hover { color: var(--terracotta); }
+    /* Header */
+    header {
+      padding: 2rem 0 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-light);
+      margin-bottom: 2.5rem;
+    }
+    .logo {
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: var(--deepolive);
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+    .logo span { color: var(--terracotta); font-style: italic; font-weight: 400; }
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+      font-family: 'Inter', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      list-style: none;
+    }
+    .nav-links a { color: #2b2b2b; border-bottom: 2px solid transparent; padding-bottom: 0.25rem; }
+    .nav-links a:hover { border-bottom-color: var(--terracotta); }
+    /* Contact Grid */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 3rem;
+      margin: 2.5rem 0 3rem;
+    }
+    .contact-form {
+      background: #f5efe8;
+      padding: 2.5rem;
+      border-radius: 40px;
+    }
+    .contact-form label {
+      font-weight: 600;
+      display: block;
+      margin-top: 1.2rem;
+      margin-bottom: 0.3rem;
+      font-size: 0.95rem;
+      color: #3d3a35;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.8rem 1.2rem;
+      border: 1px solid #dcd0c2;
+      border-radius: 30px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      background: white;
+      transition: border 0.15s;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--deepolive);
+    }
+    .contact-form textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+    .contact-form button {
+      background: var(--deepolive);
+      border: none;
+      color: white;
+      padding: 0.9rem 2.8rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      font-family: 'Inter', sans-serif;
+      margin-top: 1.8rem;
+    }
+    .contact-form button:hover { background: #2b3a28; }
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+    .contact-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 32px;
+      border: 1px solid #ece3da;
+    }
+    .contact-card h3 {
+      margin-top: 0;
+      font-size: 1.4rem;
+      color: var(--deepolive);
+    }
+    .contact-card p { margin-bottom: 0.3rem; }
+    .contact-card .detail {
+      font-weight: 500;
+      color: #2b2b2b;
+    }
+    .map-placeholder {
+      background: #d8cfc1;
+      border-radius: 32px;
+      height: 200px;
+      margin-top: 1rem;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" width="400" height="200"><rect width="400" height="200" fill="%23d8cfc1"/><path d="M120 100 L160 70 L200 100 L240 70 L280 100 L240 130 L200 100 L160 130Z" fill="%239ab892" opacity="0.6"/><circle cx="200" cy="100" r="16" fill="%233e4d3b" opacity="0.8"/></svg>');
+      background-size: cover;
+      background-position: center;
+    }
+    /* Footer */
+    footer {
+      margin-top: 3rem;
+      border-top: 1px solid #ddd2c6;
+      padding: 2.5rem 0 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      font-size: 0.95rem;
+      color: #5b4f44;
+    }
+    @media (max-width: 900px) {
+      .contact-grid { grid-template-columns: 1fr; }
+      .container { padding: 0 1rem 2rem; }
+      .nav-links { gap: 1.2rem; flex-wrap: wrap; }
+      h1 { font-size: 2.8rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- header -->
+  <header>
+    <div class="logo">Cirelith Woodland<span>Verve</span></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" style="border-bottom-color: var(--terracotta);">Contact</a></li>
+      <li><a href="terms.html">Terms Of Privacy</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="cookies.html">Cookies Policy</a></li>
+    </ul>
+  </header>
+
+  <!-- page title -->
+  <h1>Get in touch</h1>
+  <p style="font-size: 1.2rem; max-width: 700px;">We love hearing from fellow gardeners. Whether you have a question, a suggestion, or a story to share — reach out.</p>
+
+  <!-- contact grid -->
+  <div class="contact-grid">
+    <!-- form -->
+    <div class="contact-form">
+      <h2 style="border-bottom: none; margin-top: 0; font-size: 1.8rem;">Send a message</h2>
+      <form>
+        <label for="name">Your name</label>
+        <input type="text" id="name" placeholder="e.g. Margery Fish" value="Margery Fish">
+
+        <label for="email">Email address</label>
+        <input type="email" id="email" placeholder="you@example.com" value="margery@cottage.garden">
+
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" placeholder="I have a question about…" value="Composting question">
+
+        <label for="message">Message</label>
+        <textarea id="message" placeholder="Write your message here…">Dear Verdant team, I’d love to know more about your no-dig approach. Do you recommend starting with a layer of cardboard or newspaper? Thank you!</textarea>
+
+        <button type="submit">Send message</button>
+      </form>
+    </div>
+
+    <!-- info sidebar -->
+    <div class="contact-info">
+      <div class="contact-card">
+        <h3>📍 Visit us</h3>
+        <p><span class="detail">Garden studio</span><br>
+        12 Herbal Lane,<br>
+        Woodbridge, WB7 4GX<br>
+        United Kingdom</p>
+        <p style="margin-top: 1rem;"><span class="detail">✉️ Email</span><br>
+        <a href="mailto:hello@verdantverve.com">hello@verdantverve.com</a></p>
+        <p><span class="detail">📞 Phone</span><br>
+        <a href="tel:+441234567890">+44 1234 567890</a></p>
+      </div>
+      <div class="contact-card">
+        <h3>🌱 Social</h3>
+        <p>Follow us for daily inspiration:</p>
+        <div style="display: flex; gap: 1.2rem; font-weight: 500;">
+          <a href="#">Instagram</a>
+          <a href="#">Pinterest</a>
+          <a href="#">YouTube</a>
+        </div>
+      </div>
+      <div class="contact-card" style="padding: 0.5rem 0 0 0; border: none; background: transparent;">
+        <div class="map-placeholder"></div>
+        <p style="font-size: 0.85rem; margin-top: 0.5rem; color: #5b4f44;">Our studio is nestled in the heart of Woodbridge.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- footer -->
+  <footer>
+    <div>© 2026 Verdant Verve · cultivated content</div>
+    <div style="display:flex; gap:1.8rem;">
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy</a>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
